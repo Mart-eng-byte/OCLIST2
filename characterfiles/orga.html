@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 
-    <head>
+
+<html lang="en">
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial;}
@@ -63,19 +64,29 @@ body {font-family: Arial;}
 
 <script>
 function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
+  var tab = document.getElementById(cityName);
+  var isOpen = tab.style.display === "block";
+
+  // Close all tab content
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  for (var i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
+
+  // Remove active class from all buttons
+  var tablinks = document.getElementsByClassName("tablinks");
+  for (var i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
+
+  // Toggle behavior
+  if (!isOpen) {
+    tab.style.display = "block";
+    evt.currentTarget.className += " active";
+  }
 }
 </script>
+
    
 </body>
 
